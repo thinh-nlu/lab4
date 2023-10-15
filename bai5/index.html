@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai5</title>
+    <link href="style.css">
+</head>
+<body>
+    <img id="rotating_image" class="img" src="../image/ic_home_call.png"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            let rotatingDegree = 0
+
+            function rotatingImage(degrees) {
+                $("#rotating_image").css("transform","rotate(" + degrees + "deg)")
+            }
+
+            setInterval(function () {
+                rotatingDegree += 15
+                rotatingImage(rotatingDegree)
+            },2000)
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error {
+            color: red;
+        }
+
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <form id="login">
+        <div class="card">
+            <h1>Sign In</h1>
+            <br>
+            <div class="input">
+                <input type="text" class="input-email" id="email" placeholder="use name or email"><br><br>
+                <span id="email_error" class="error"></span>
+            </div>
+            <div class="input">
+                <input type="password" class="input-password" id="password" placeholder="password"><br><br>
+                <span id="password_error" class="error"></span>
+            </div>
+            <div class="button" id="submit">
+                <button class="btn"><span>Sign In</span></button>
+            </div>
+            <div class="container">
+                <div class="icon">
+                    <i class="fa-brands fa-facebook-f" style="color: #3959a0;font-size: 20px;"></i>
+                </div>
+                <div class="icon1">
+                    <i class="fa-brands fa-google" style="color: #cea81c;font-size: 20px;margin-left: 16px;"></i>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            const loginForm = $("#login")
+
+            loginForm.on("submit",function (event) {
+                event.preventDefault()
+                let isValid = true
+
+                //reset error message
+                $("#email_error").text("")
+                $("#password_error").text("")
+
+                const email = $("#email").val()
+                const password = $("#password").val()
+
+                console.log(email)
+
+                if (!/^\S+@\S+\.\S+$/.test(email)) {
+                    $("#email_error").text("Email is required")
+                    $("#email_error")[0].className = "error"
+                    $("#email")[0].className = "input-error"
+                    isValid = false
+                }
+
+                if (password.length < 6) {
+                    $("#password_error").text("Password must be least 6 characters")
+                    $("#password_error")[0].className = "error"
+                    $("#password")[0].className = "input-error"
+                    isValid = false
+                }
+
+                if (isValid) {
+                    alert("Login successfull")
+                    $("#email_error").text("")
+                    $("#password_error").text("")
+                } else {
+                    alert("Login failed")
+                }
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 3</title>
+</head>
+<body>
+    <p id="greeting"></p>
+    <script src="main.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const randomGreeting = getRandomGreeting()
+            document.getElementById('greeting').innerHTML = randomGreeting
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai4</title>
+</head>
+<body>
+    <div style="display: flex ">
+        <textarea id="text_area" rows="4" cols="50" placeholder="Nhập đoạn văn bản"><br><br>
+      </textarea>
+        <input type="text" id="text_field" placeholder="Nhập dòng (B)"><br><br>
+        <<button id="count_button">Đếm</button>br><br>
+        <p id="result"></p>
+    </div>
+    <script src="main.js"></script>
+    <script>
+        document.getElementById("count_button").addEventListener("click",function () {
+            var textArea = document.getElementById("text_area").value
+            var textField = document.getElementById("text_field").value
+            var count = 0
+
+            var pattern = new RegExp(textField,"g") //g mean global
+            count = (textArea.match(pattern) || []).length
+            document.getElementById("result").innerHTML = "Số lần xuất hiện của '"
+            + textField + "' trong đoạn văn là: " + count
+        })
+    </script>
+</body>
+</html>
